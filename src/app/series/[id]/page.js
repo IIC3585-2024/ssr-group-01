@@ -45,7 +45,7 @@ function postComment() {
   }
 
   let comments = serie.comments;
-  comments.push({ user: current[0].mail, comment: comment });
+  comments.push({ user: current[0].mail, comment, rating });
   let stars = serie.starsList;
   stars.push(rating);
 
@@ -82,7 +82,11 @@ export default function Serie() {
 
         <div className="items-center lg:grid lg:grid-cols-3 gap-4 mb-4">
           <div className="items-center">
-            <img src={serie ? serie.image : ''} alt="The Witcher" className="mx-auto shadow-[1px_1px_10px_2px_rgba(255,255,255,1)]" style={{ width: '300px', height: '450px', borderRadius: '10px' }} />
+            <img
+              src={serie ? serie.image : ''}
+              alt={serie ? serie.name : ''}
+              className="mx-auto shadow-[1px_1px_10px_2px_rgba(255,255,255,1)]"
+              style={{ width: '300px', height: '450px', borderRadius: '10px' }} />
           </div>
           <div className="col-span-2 m-4 text-2xl">
             <p className="mb-3">{serie ? serie.description : ''}</p>
@@ -111,6 +115,7 @@ export default function Serie() {
               <div key={index} className="flex-col m-2">
                 <p>{comment.user}</p>
                 <p>{comment.comment}</p>
+                <p>Rating: {comment.rating}</p>
               </div>
             )) : ''}
           </div>

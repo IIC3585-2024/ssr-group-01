@@ -51,6 +51,7 @@ export default function Home() {
               <option value="horror">Horror</option>
               <option value="romance">Romance</option>
               <option value="fantasy">Fantasy</option>
+              <option value="sci-fi">Sci-Fi</option>
             </select>
           </div>
 
